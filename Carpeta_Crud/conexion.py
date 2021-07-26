@@ -23,7 +23,7 @@ class contactos:
     def crearContacto(self, datosContacto):
         conexion=self.iniciarConexion()
         cursor=conexion.cursor()
-        sentencialSQL="INSERT INTO contactos(Nombre,Correo) VALUES(?, ?)"
+        sentencialSQL="INSERT INTO contactos(Nombre,Correo, Direccion, Telefono) VALUES(?, ?, ?, ?)"
         cursor.execute(sentencialSQL, datosContacto)
         conexion.commit() # Da como ejecutado 
         conexion.close()
@@ -39,7 +39,7 @@ class contactos:
     def modificarContacto(self, datosContacto):
         conexion=self.iniciarConexion()
         cursor=conexion.cursor()
-        sentencialSQL="UPDATE contactos SET nombre=?, correo=? WHERE id=?"
+        sentencialSQL="UPDATE contactos SET nombre=?, correo=?, Direccion=?, Telefono=? WHERE id=?"
         cursor.execute(sentencialSQL, datosContacto)
         conexion.commit() # Da como ejecutado 
         conexion.close()
